@@ -1,3 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: blanchedalmond;
+  font-family: 'Geologica', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  text-align: center;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: white;
+  background-color: #ef6262;
+  margin: -0.5rem;
+}
+
+main {
+  padding-top: 3.5rem;
+}
+
+.search-title {
+  font-size: 1.8rem;
+}
+
+.city-search {
+  display: inline-flex;
+  flex-direction: column;
+  width: 25%;
+  text-align: center;
+  position: relative;
+  top: 1rem;
+  height: 80%;
+}
+
+input {
+  background-color: #ffd93d;
+  height: 2.7rem;
+  margin-top: 0.9rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+button {
+  background-color: #64ccc5;
+  height: 2.3rem;
+  margin-top: 0.9rem;
+  border-radius: 8px;
+  width: 100%;
+}
+.searches {
+  background-color: #f3aa60;
+  height: 2.5rem;
+  margin-top: 0.9rem;
+  border-radius: 8px;
+}
+
+hr {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.city-temp {
+  display: flex;
+  width: 80%;
+  position: relative;
+  left: 25%;
+  top: -21rem;
+  flex-direction: column;
+  border-style: solid;
+  border-width: 0.15rem;
+  border-color: #ef6262;
+  margin-left: 1rem;
+}
+
+.city-name {
+  position: relative;
+  margin-left: 0.3rem;
+}
+
+.city-spacifics {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -1.2rem;
+  margin-left: 0.3rem;
+}
+
+.day-forcast {
+  display: flex;
+  width: 80%;
+  position: relative;
+  left: 25%;
+  top: -20rem;
+  margin-left: 1rem;
+}
+
+.each-day-temp {
+  display: flex;
+  position: relative;
+  left: 25%;
+  top: -22rem;
+  gap: 2rem;
+  margin-left: 1rem;
+}
+
+.day-temp {
 }
