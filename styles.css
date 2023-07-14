@@ -91,7 +91,7 @@ hr {
 
   position: relative;
   left: 25%;
-  top: -21rem;
+  top: -10.8rem;
   flex-direction: column;
   border-style: solid;
   border-width: 0.15rem;
@@ -144,7 +144,7 @@ hr {
   width: 60vw;
   position: relative;
   left: 25%;
-  top: -19rem;
+  top: -8.8rem;
   margin-left: 2.2rem;
 }
 
@@ -156,7 +156,7 @@ h3 {
   display: flex;
   position: relative;
   left: 25%;
-  top: -19.5rem;
+  top: -9.2rem;
   gap: 1rem;
   margin-left: 2.2rem;
   flex-wrap: wrap;
@@ -170,6 +170,50 @@ h3 {
   border-radius: 8px;
   line-height: 2rem;
 }
+
+/* 
+@media (min-width: 1600px) {
+  .search-title {
+    font-size: 35px;
+  }
+
+  .city-temp {
+    top: -26rem;
+  }
+
+  .city-search {
+  }
+
+  input {
+    height: 3rem;
+  }
+
+  button {
+    height: 3rem;
+  }
+
+  .searches {
+    height: 3.5rem;
+  }
+
+  .city-temp {
+  }
+
+  h3 {
+    top: -20rem;
+  }
+
+  .section-3 {
+    top: -22rem;
+  }
+
+  .each-day-temp {
+    top: -25rem;
+  }
+
+  .day-temp {
+  }
+} */
 
 @media (max-width: 800px) {
   .section-1 {
@@ -185,13 +229,13 @@ h3 {
   .city-temp {
     width: 70%;
     margin-left: 3rem;
-    top: -23.5rem;
+    top: -12.5rem;
     width: 60vw;
   }
 
   .day-forcast {
     margin-left: 3rem;
-    top: -19.4rem;
+    top: -8.5rem;
   }
 
   .section-3 {
@@ -201,7 +245,7 @@ h3 {
 
   .each-day-temp {
     gap: 0.2rem;
-    top: -19.9rem;
+    top: -9rem;
     margin-left: 1rem;
   }
 
@@ -230,9 +274,20 @@ h3 {
     text-align: center;
   }
 
+  input {
+    height: 3.5rem;
+  }
+
+  button {
+    height: 3.5rem;
+  }
+  .searches {
+    height: 3.5rem;
+  }
+
   .section-2 {
     position: relative;
-    top: 28rem;
+    top: 29rem;
     left: 0rem;
   }
   .city-temp {
@@ -240,8 +295,9 @@ h3 {
 
     position: relative;
     justify-content: center;
-    left: 9%;
+    left: -3%;
     top: -22rem;
+    width: 21rem;
   }
 
   .city-name {
@@ -256,7 +312,7 @@ h3 {
 
   .section-3 {
     position: relative;
-    top: 25.5rem;
+    top: 16rem;
   }
   .day-forcast {
     position: relative;
@@ -264,19 +320,30 @@ h3 {
   }
   .each-day-temp {
     display: flex;
-    justify-content: center;
     position: relative;
-    left: 2rem;
-    width: 70vw;
+    left: -2.8%;
+    width: 23rem;
   }
   .day-temp {
     width: 100%;
   }
 }
 
+@media (max-width: 395px) {
+  .city-temp {
+    left: -1.5rem;
+  }
+
+  .each-day-temp {
+    left: -1.5rem;
+  }
+}
+
 @media (max-width: 380px) {
   .city-temp {
-    right: 60%;
+    position: relative;
+    left: -1rem;
+    width: 19.5rem;
   }
 
   h3 {
@@ -292,5 +359,21 @@ h3 {
 
   .each-day-temp {
     align-content: center;
+    width: 21.5rem;
+    position: relative;
+    left: -1rem;
+  }
+
+  .day-temp {
+    width: 100%;
+  }
+}
+
+@media (max-width: 365px) {
+  .city-temp {
+    left: -1.7rem;
+  }
+  .each-day-temp {
+    left: -1.7rem;
   }
 }
