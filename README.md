@@ -15,8 +15,8 @@ This is a weather webapp that allows you to search cities and see the temperatur
 
 ## Description
 
-This is a Weather webapp that allows you to get the weather of any city of your choice. All you need to do is search the city in the search box and you will recieve the city name, the current weather and the weather for the following 5 days.
-Click clear allows you to clear the cities information.
+This is a weather app that allows you to get the weather of any city of your choice. All you need to do is search the city in the search box and you will recieve the city name, temp, wind speed, humity and the weather and for the following 5 days.
+Clicking the clear button allows you to clear the cities information.
 
 ## License
 
@@ -35,6 +35,8 @@ This is what the user will see when they first see the page
 3. JavaScript
 
 ## Deployment
+
+https://jweah2385.github.io/weather-app/
 
 ## Contact
 

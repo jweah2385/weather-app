@@ -121,7 +121,7 @@ function getApi() {
     });
 
   let apiLonLat =
-    'http://api.openweathermap.org/geo/1.0/direct?q=' +
+    'https://api.openweathermap.org/geo/1.0/direct?q=' +
     input.value +
     '&limit=5&appid=2ea3de401fcebeccbaaf9bc35590c4bc';
 
@@ -134,7 +134,7 @@ function getApi() {
       lat = longLatData[0].lat;
 
       let apiFiveDay =
-        'http://api.openweathermap.org/data/2.5/forecast?lat=' +
+        'https://api.openweathermap.org/data/2.5/forecast?lat=' +
         lat +
         '&lon=' +
         lon +
