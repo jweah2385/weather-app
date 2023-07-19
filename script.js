@@ -9,6 +9,11 @@ let cityTemp = document.querySelector('.temp');
 let cityWind = document.querySelector('.wind');
 let cityHumidity = document.querySelector('.humidity');
 let dayforCast = document.querySelector('h3');
+let clearBtn = document.querySelector('#clear');
+let section3 = document.querySelector('.each-day-temp');
+let section2 = document.querySelector('.parentOfSec');
+let firstPic = document.querySelector('.firstPic');
+let savedData = document.querySelector('.data-save');
 //day1
 let cityDate1 = document.querySelector('.city-date1');
 let forcastPic1 = document.querySelector('.forcast-pic1');
@@ -39,7 +44,12 @@ let forcastPic5 = document.querySelector('.forcast-pic5');
 let temp5 = document.querySelector('.temp5');
 let wind5 = document.querySelector('.wind5');
 let humidity5 = document.querySelector('.humidity5');
-
+let firstIcon = '';
+let icon1 = '';
+let icon2 = '';
+let icon3 = '';
+let icon4 = '';
+let icon5 = '';
 let lon = 0;
 let lat = 0;
 // Get current date
@@ -48,21 +58,43 @@ let currentDate = dayjs();
 let formDate = currentDate.format('MM-DD-YYYY');
 
 // Create a Moment object for the current date and time
-var currentDate2 = moment();
+let currentDate2 = moment();
+let currentDate3 = moment();
 
 // Format the current date
 var formattedDate = currentDate2.format('YYYY-MM-DD');
 
-// Output the formatted date
-console.log('Current Date:', formattedDate);
-
+//Converts K to F
 kelven = function kelvin(kel) {
   let fer = (kel - 273.15) * (9 / 5) + 32;
   return fer;
 };
 
+//Clears the div
+function clear() {
+  let childDivs = section3.querySelectorAll('.day-temp');
+  let childDivs2 = section2.querySelectorAll('.sec2child');
+  for (let i = 0; i < childDivs.length; i++) {
+    let children = childDivs[i].children;
+    for (let i = 0; i < children.length; i++) {
+      children[i].innerHTML = '';
+      children[i].src = '';
+    }
+  }
+  for (let i = 0; i < childDivs2.length; i++) {
+    let children2 = childDivs2[i].children;
+    for (let i = 0; i < children2.length; i++) {
+      children2[i].innerHTML = '';
+      firstPic.src = '';
+    }
+  }
+  cityName.innerHTML = '';
+}
+
+//Fetches information from openweather api
 let apiKey = '2ea3de401fcebeccbaaf9bc35590c4bc';
 function getApi() {
+  clear();
   let api =
     'https://api.openweathermap.org/data/2.5/weather?q=' +
     input.value +
@@ -74,17 +106,18 @@ function getApi() {
       return response.json();
     })
     .then(function (data) {
+      firstPic.classList.remove('nodisplay');
       let cityT = kelven(data.main.temp);
-      console.log(data);
-      cityName.prepend(data.name + ' (' + formDate + ')');
-      cityTemp.prepend(cityT.toFixed(2) + ' F');
-      cityWind.prepend(data.wind.speed + ' mph');
-      cityHumidity.prepend(data.main.humidity + ' g/kg');
+      let firstIconforApi = data.weather[0].icon;
 
-      const newDiv = document.createElement('div');
-      // newDiv.textContent = data.name;
-      // newDiv.classList.add('searches');
-      // citySearch.appendChild(newDiv);
+      let firstIconUrl =
+        'https://openweathermap.org/img/wn/' + firstIconforApi + '.png';
+      firstPic.src = firstIconUrl;
+
+      cityName.prepend(data.name + ' (' + formDate + ')');
+      cityTemp.prepend('Temp: ' + cityT.toFixed(2) + ' F');
+      cityWind.prepend('Wind: ' + data.wind.speed + ' mph');
+      cityHumidity.prepend('Humidity: ' + data.main.humidity + ' %');
     });
 
   let apiLonLat =
@@ -110,54 +143,84 @@ function getApi() {
 
       fetch(apiFiveDay)
         .then(function (response) {
-          console.log(lon);
-          console.log(lat);
           return response.json();
         })
         .then(function (daysForcast) {
+          //Inserting temp, wind, humidity icon and date into div
           //Day1
-          let day1 = daysForcast.list[0].dt_txt;
-          let currentDate3 = moment();
-          let day1Temp = kelven(daysForcast.list[0].main.temp);
-          day1 = currentDate3.format('MM-DD-YYYY');
-          cityDate1.prepend(day1);
-          temp1.prepend(day1Temp.toFixed(2) + ' F');
-          wind1.prepend(daysForcast.list[0].wind.speed + ' mph');
-          humidity1.prepend(daysForcast.list[0].main.humidity + ' g/kg');
+          let day1 = daysForcast.list[2].dt_txt;
+          let day1Temp = kelven(daysForcast.list[2].main.temp);
+          let day1Date = currentDate3.add(1, 'days').format('MM-DD-YYYY');
+          let weatherpic1 = forcastPic1.prepend();
+          icon1 = daysForcast.list[2].weather[0].icon;
+          let icon1Url1 = 'https://openweathermap.org/img/wn/' + icon1 + '.png';
+          forcastPic1.src = icon1Url1;
+          cityDate1.prepend(day1Date);
+          temp1.prepend('Temp: ' + day1Temp.toFixed(2) + ' F');
+          wind1.prepend('Wind: ' + daysForcast.list[2].wind.speed + ' mph');
+          humidity1.prepend(
+            'Humidity: ' + daysForcast.list[2].main.humidity + ' %'
+          );
+
           //Day2
-          let day2 = daysForcast.list[8].dt_txt;
-          let day2Temp = kelven(daysForcast.list[8].main.temp);
-          day2 = currentDate3.format('MM-DD-YYYY');
-          cityDate2.prepend(day2);
-          temp2.prepend(day2Temp.toFixed(2) + ' F');
-          wind2.prepend(daysForcast.list[8].wind.speed + ' mph');
-          humidity2.prepend(daysForcast.list[8].main.humidity + ' g/kg');
+          let day2 = daysForcast.list[10].dt_txt;
+          let day2Temp = kelven(daysForcast.list[10].main.temp);
+          let day2Date = currentDate3.add(1, 'days').format('MM-DD-YYYY');
+          icon2 = daysForcast.list[10].weather[0].icon;
+          let icon1Url2 = 'https://openweathermap.org/img/wn/' + icon2 + '.png';
+          forcastPic2.src = icon1Url2;
+          cityDate2.prepend(day2Date);
+          temp2.prepend('Temp: ' + day2Temp.toFixed(2) + ' F');
+          wind2.prepend('Wind: ' + daysForcast.list[10].wind.speed + ' mph');
+          humidity2.prepend(
+            'Humidity: ' + daysForcast.list[10].main.humidity + ' %'
+          );
+
           //Day3
-          let day3 = daysForcast.list[16].dt_txt;
-          let day3Temp = kelven(daysForcast.list[16].main.temp);
-          day3 = currentDate3.format('MM-DD-YYYY');
-          cityDate3.prepend(day3);
-          temp3.prepend(day3Temp.toFixed(2) + ' F');
-          wind3.prepend(daysForcast.list[16].wind.speed + ' mph');
-          humidity3.prepend(daysForcast.list[16].main.humidity + ' g/kg');
+          let day3 = daysForcast.list[18].dt_txt;
+          let day3Temp = kelven(daysForcast.list[18].main.temp);
+          let day3Date = currentDate3.add(1, 'days').format('MM-DD-YYYY');
+          icon3 = daysForcast.list[18].weather[0].icon;
+          let icon1Url3 = 'https://openweathermap.org/img/wn/' + icon3 + '.png';
+          forcastPic3.src = icon1Url3;
+          cityDate3.prepend(day3Date);
+          temp3.prepend('Temp: ' + day3Temp.toFixed(2) + ' F');
+          wind3.prepend('Wind: ' + daysForcast.list[18].wind.speed + ' mph');
+          humidity3.prepend(
+            'Humidity: ' + daysForcast.list[18].main.humidity + ' %'
+          );
+
           //Day4
-          let day4 = daysForcast.list[24].dt_txt;
-          let day4Temp = kelven(daysForcast.list[24].main.temp);
-          day4 = currentDate3.format('MM-DD-YYYY');
-          cityDate4.prepend(day4);
-          temp4.prepend(day4Temp.toFixed(2) + ' F');
-          wind4.prepend(daysForcast.list[24].wind.speed + ' mph');
-          humidity4.prepend(daysForcast.list[24].main.humidity + ' g/kg');
+          let day4 = daysForcast.list[26].dt_txt;
+          let day4Temp = kelven(daysForcast.list[26].main.temp);
+          let day4Date = currentDate3.add(1, 'days').format('MM-DD-YYYY');
+          icon4 = daysForcast.list[26].weather[0].icon;
+          let icon1Url4 = 'https://openweathermap.org/img/wn/' + icon4 + '.png';
+          forcastPic4.src = icon1Url4;
+          cityDate4.prepend(day4Date);
+          temp4.prepend('Temp: ' + day4Temp.toFixed(2) + ' F');
+          wind4.prepend('Wind: ' + daysForcast.list[26].wind.speed + ' mph');
+          humidity4.prepend(
+            'Humidity: ' + daysForcast.list[26].main.humidity + ' %'
+          );
+
           //Day5
-          let day5 = daysForcast.list[32].dt_txt;
-          let day5Temp = kelven(daysForcast.list[32].main.temp);
-          day5 = currentDate3.format('MM-DD-YYYY');
-          cityDate5.prepend(day5);
-          temp5.prepend(day5Temp.toFixed(2) + ' F');
-          wind5.prepend(daysForcast.list[32].wind.speed + ' mph');
-          humidity5.prepend(daysForcast.list[32].main.humidity + ' g/kg');
+          let day5 = daysForcast.list[34].dt_txt;
+          let day5Temp = kelven(daysForcast.list[34].main.temp);
+          let day5Date = currentDate3.add(1, 'days').format('MM-DD-YYYY');
+          icon5 = daysForcast.list[34].weather[0].icon;
+          cityDate5.prepend(day5Date);
+          let icon1Url5 = 'https://openweathermap.org/img/wn/' + icon5 + '.png';
+          forcastPic5.src = icon1Url5;
+          temp5.prepend('Temp: ' + day5Temp.toFixed(2) + ' F');
+          wind5.prepend('Wind: ' + daysForcast.list[34].wind.speed + ' mph');
+          humidity5.prepend(
+            'Humidity: ' + daysForcast.list[34].main.humidity + ' %'
+          );
+          save();
         });
     });
 }
 
 btn.addEventListener('click', getApi);
+clearBtn.addEventListener('click', clear);

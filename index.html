@@ -15,70 +15,77 @@
   </head>
   <body>
     <header><h1>Weather Dashboard</h1></header>
-
-    <se
-    ction class="section-1">
-      <div class="city-search">
-        <div class="search-title">Search for a City:</div>
-        <div class="input">
-          <input type="text" placeholder="City Name" />
+    <section class="data-save">
+      <section class="data-section section-1">
+        <div class="city-search">
+          <div class="search-title">Search for a City:</div>
+          <div class="input">
+            <input type="text" placeholder="City Name" />
+          </div>
+          <div class="button"><button>Search</button></div>
+          <div class="button" id="clear"><button>Clear</button></div>
+          <hr />
         </div>
-        <div class="button"><button>Search</button></div>
-        <hr />
-      </div>
-    </section>
-    <section class="section-2">
-      <div class="city-temp">
-        <div class="city-name"><p></p></div>
-
-        <div class="city-spacifics">
-          <div class="temp"><p></p></div>
-          <div class="wind"><p></p></div>
-          <div class="humidity"><p></p></div>
+      </section>
+      <section class="data-section section-2">
+        <div class="parentOfSec city-temp">
+          <div class="sec2child city-name">
+            <p></p>
+          </div>
+          <img
+            class="firstPic nodisplay"
+            src=""
+            style="height: 2.5rem; width: 2.5rem"
+          />
+          <div class="sec2child city-spacifics">
+            <div class="sec2child temp"><p></p></div>
+            <div class="sec2child wind"><p></p></div>
+            <div class="sec2child humidity"><p></p></div>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="section-3">
-      <div class="day-forcast">
-        <div><h3>5-Day Forcast:</h3></div>
-      </div>
-      <div class="each-day-temp">
-        <div class="day-temp">
-          <div class="city-date1"></div>
-          <div class="forcast-pic1">☀️</div>
-          <div class="temp1"></div>
-          <div class="wind1"></div>
-          <div class="humidity1"></div>
+      </section>
+      <section class="data-section section-3">
+        <div class="day-forcast">
+          <div><h3>5-Day Forcast:</h3></div>
         </div>
-        <div class="day-temp">
-          <div class="city-date2"></div>
-          <div class="forcast-pic2">☀️</div>
-          <div class="temp2"></div>
-          <div class="wind2"></div>
-          <div class="humidity2"></div>
+        <div class="each-day-temp">
+          <div class="day-temp">
+            <div class="city-date1"></div>
+            <img class="forcast-pic1" src="" />
+            <div class="temp1"></div>
+            <div class="wind1"></div>
+            <div class="humidity1"></div>
+          </div>
+          <div class="day-temp">
+            <div class="city-date2"></div>
+            <img class="forcast-pic2" src="" />
+            <div class="temp2"></div>
+            <div class="wind2"></div>
+            <div class="humidity2"></div>
+          </div>
+          <div class="day-temp">
+            <div class="city-date3"></div>
+            <img class="forcast-pic3" src="" />
+            <div class="temp3"></div>
+            <div class="wind3"></div>
+            <div class="humidity3"></div>
+          </div>
+          <div class="day-temp">
+            <div class="city-date4"></div>
+            <img class="forcast-pic4" src="" />
+            <div class="temp4"></div>
+            <div class="wind4"></div>
+            <div class="humidity4"></div>
+          </div>
+          <div class="day-temp">
+            <div class="city-date5"></div>
+            <img class="forcast-pic5" src="" />
+            <div class="temp5"></div>
+            <div class="wind5"></div>
+            <div class="humidity5"></div>
+          </div>
         </div>
-        <div class="day-temp">
-          <div class="city-date3"></div>
-          <div class="forcast-pic3">☀️</div>
-          <div class="temp3"></div>
-          <div class="wind3"></div>
-          <div class="humidity3"></div>
-        </div>
-        <div class="day-temp">
-          <div class="city-date4"></div>
-          <div class="forcast-pic4">☀️</div>
-          <div class="temp4"></div>
-          <div class="wind4"></div>
-          <div class="humidity4"></div>
-        </div>
-        <div class="day-temp">
-          <div class="city-date5"></div>
-          <div class="forcast-pic5">☀️</div>
-          <div class="temp5"></div>
-          <div class="wind5"></div>
-          <div class="humidity5"></div>
-        </div>
-      </div>
+      </section>
     </section>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.9/dayjs.min.js"
@@ -87,7 +94,6 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-
     <script src="./script.js"></script>
   </body>
 </html>
