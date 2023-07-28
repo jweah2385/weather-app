@@ -6,7 +6,6 @@ This is a weather webapp that allows you to search cities and see the temperatur
 
 - [Project Title](#project-title)
 - [Description](#description)
-- [Usage](#usage)
 - [License](#license)
 - [Preview](#preview)
 - [Technologies Used](#technologies-used)
