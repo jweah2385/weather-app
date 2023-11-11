@@ -1,6 +1,6 @@
 # Weather App
 
-This is a weather webapp that allows you to search cities and see the temperature of the current day and the next 5 following days.
+This is a weather application that allows you to search cities and see the temperature of the current day and the next 5 following days.
 
 ## Table of Contents
 
